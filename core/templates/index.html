@@ -1,0 +1,125 @@
+{% extends "layouts/default.html" %}
+
+{% block title %} Dashboard {% endblock title %}
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="http://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-1.1.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://cdn.pydata.org/bokeh/release/bokeh-tables-1.1.0.min.css"/>
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+            <div class="row gap-20 masonry pos-r">
+              <div class="masonry-sizer col-md-6"></div>
+              <div class="masonry-item w-100">
+                <div class="row gap-20">
+                  <!-- #Toatl Visits ==================== -->
+                  <div class="col-md-3">
+                    <div class="layers bd bgc-white p-20">
+                      <div class="layer w-100 mB-10">
+                        <h6 class="lh-1">Departments/Sites</h6>
+                      </div>
+                      <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                          <div class="peer peer-greed">
+                            <span id="sparklinedash"></span>
+                          </div>
+                          <div class="peer">
+                            <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500">{{ count.site }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- #Total Page Views ==================== -->
+                  <div class="col-md-3">
+                    <div class="layers bd bgc-white p-20">
+                      <div class="layer w-100 mB-10">
+                        <h6 class="lh-1">Pathological Tests</h6>
+                      </div>
+                      <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                          <div class="peer peer-greed">
+                            <span id="sparklinedash2"></span>
+                          </div>
+                          <div class="peer">
+                            <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-red-50 c-red-500">{{ count.test }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- #Unique Visitors ==================== -->
+                  <div class="col-md-3">
+                    <div class="layers bd bgc-white p-20">
+                      <div class="layer w-100 mB-10">
+                        <h6 class="lh-1">Patients</h6>
+                      </div>
+                      <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                          <div class="peer peer-greed">
+                            <span id="sparklinedash3"></span>
+                          </div>
+                          <div class="peer">
+                            <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-purple-50 c-purple-500">{{ count.patient }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- #Bounce Rate ==================== -->
+                  <div class="col-md-3">
+                    <div class="layers bd bgc-white p-20">
+                      <div class="layer w-100 mB-10">
+                        <h6 class="lh-1">Users</h6>
+                      </div>
+                      <div class="layer w-100">
+                        <div class="peers ai-sb fxw-nw">
+                          <div class="peer peer-greed">
+                            <span id="sparklinedash4"></span>
+                          </div>
+                          <div class="peer">
+                            <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-blue-50 c-blue-500">{{ count.user }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="masonry-item col-12">
+                <!-- #Site Visits ==================== -->
+                <div class="bd bgc-white">
+                  <div class="peers fxw-nw@lg+ ai-s">
+                    <div class="peer peer-greed w-60p@lg+ w-100@lg- p-20">
+                      <div style="width:100vh; overflow-x:auto;" class="layers">
+                        <div class="layer w-100 mB-10">
+                          <h6 class="lh-1">Sites</h6>
+                        </div>
+                        <div class="layer w-100">
+                            <center>
+                          {{ table | safe }}
+                            {{ script | safe }}
+                            </center>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="peer bdL p-20 w-40p@lg+ w-100p@lg-">
+                      <div style="height: 70vh;overflow-y: auto;" class="table-responsive p-20">
+                        {{ sitetable|safe }}
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js"></script>
+{% endblock content %}
+
+

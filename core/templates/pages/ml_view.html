@@ -1,0 +1,59 @@
+
+{% extends "layouts/default.html" %}
+
+{% block title %} Blank Page {% endblock title %}
+
+{% block stylesheets %}
+    <style>
+    div.scroll1 {
+        overflow: scroll;
+        height: 35em;
+        }
+    </style>
+
+{% endblock stylesheets %}
+
+{% load bootstrap3 %}
+{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+
+{% block content %}
+
+<div class="container">
+    <h1>ML Inference</h1>
+    {% load crispy_forms_tags %}
+    <div class="bd bgc-white">
+                  <div class="peers fxw-nw@lg+ ai-s">
+                    <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
+                      <div class="layers">
+                        <div class="layer w-100 mB-10">
+                          <h3 class="lh-1"></h3>
+                        </div>
+                          <form action="." method="post">
+                              <div class='peer'>
+                                  <br>
+                                  {% csrf_token %}
+                                  <div class="row">
+                                      <div class="col-md-4 scroll1">{{ form.ams2|as_crispy_field }}</div>
+                                      <div class="col-md-8">
+                                          {% if pic %}
+                                              <h2>Predictions from Generalized Linear Models</h2>
+                                              <img src="/static/plots/{{pic}}.jpeg" alt="Trulli" class="center" width="500" height="350">
+                                          {% endif %}
+                                      </div>
+                                  </div>
+
+                              </div>
+
+
+                              <br>
+                              <button type="submit" class="btn btn-success">Generate Plot</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+{% endblock content %}

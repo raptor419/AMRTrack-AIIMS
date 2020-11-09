@@ -1,0 +1,41 @@
+
+{% extends "layouts/default.html" %}
+
+{% block title %} Blank Page {% endblock title %}
+<script src="https://cdn.bokeh.org/bokeh/release/bokeh-1.1.0.min.js"></script>
+
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="http://cdn.pydata.org/bokeh/release/bokeh-1.1.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-1.1.0.min.css"/>
+    <link rel="stylesheet" type="text/css" href="http://cdn.pydata.org/bokeh/release/bokeh-tables-1.1.0.min.css"/>
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+    <div class="bd bgc-white">
+                  <div class="peers fxw-nw@lg+ ai-s">
+                    <div class="peer peer-greed w-70p@lg+ w-100@lg- p-20">
+                      <div class="layers">
+                        <div class="layer w-100 mB-10">
+                          <h3 class="lh-1">Antibiogram Dashboard</h3>
+                        </div>
+
+                        <div style="width:150vh; height:150vh;overflow-y: auto; overflow-x: auto" class="col-md-12 col-sm-12">
+                          {{ table|safe }}
+                            {{ script|safe }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+    <!-- (Almost) A blank page -->
+
+
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-2.1.1.min.js"></script>
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,48 @@
+
+{% extends "layouts/default.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Antibiogram {% endblock title %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+{{ form.media }}
+    <h3>
+    Hospital Antibiogram
+    </h3>
+
+    <form action="." method="post">
+    <div class='container'>
+        <br>
+         {% csrf_token %}
+        <div class="row">
+            <div class="col-md-4">{{ form.ams|as_crispy_field }}</div>
+            <div class="col-md-4">
+                <div class=""> {{ form.site|as_crispy_field }}</div>
+                <div class="">{{ form.org|as_crispy_field }}</div>
+            </div>
+            <div class="col-md-3">{{ form.col|as_crispy_field }}</div>
+            <div class="col-md-3">{{ form.hosp|as_crispy_field }}</div>
+            {% block extrahead %}   {# Extra Resources Start #}
+            <div class="col-md-4" style="padding-left: 2em;">
+            <b>
+            <div class="row">
+                Enter Start Date
+                {{ form.startdate }}
+            </div>
+                </br>
+            <div class="row">
+                Enter End Date
+                {{ form.enddate }}
+            </div>
+            </b>
+            </div>
+            {% endblock extrahead%}          {# Extra Resources End #}
+        </div>
+            <br>
+        <button type="submit" class="btn btn-success">Generate Sensitivity Table</button>
+    </div>
+    </form>
+    {% endblock content %}
