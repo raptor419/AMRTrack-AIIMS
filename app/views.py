@@ -23,7 +23,7 @@ def index(request):
     user_count = User.objects.count()
     test_count = PathTest.objects.count()
     patient_count = len(Patient.objects.values('patient_id').distinct())
-    print(test_count, patient_count, site_count, user_count)
+    # print(test_count, patient_count, site_count, user_count)
     count = {"site": site_count, "test": test_count, "patient": patient_count, "user": user_count}
     pie, site_df = pie_path()
     table = site_df.to_html(classes="table fixed", index=False)
@@ -71,7 +71,7 @@ def antibiogram(request):
             if not input_form.cleaned_data['enddate']:
                 input_form.cleaned_data['enddate'] = datetime(2100, 1, 1).date()
 
-            print(input_form.cleaned_data)
+            # print(input_form.cleaned_data)
 
             dfr, dfs, dfi = get_rsi(ams=input_form.cleaned_data['ams'],
                                     organisms=input_form.cleaned_data['org'],
@@ -87,9 +87,19 @@ def antibiogram(request):
             dft = dfi + dfr + dfs
             dff = dfr / (dft) * 100
 
-            print(dff)
+            
 
-            # print(dff, ORGANISMS)
+            #remove all organism if only one organism is selected
+            if len(input_form.cleaned_data['org'])==1:
+                dff = dff.drop(' All Organisms')
+                dft = dft.drop(' All Organisms')
+                
+            #set precision
+            dff = dff.round(decimals=1)
+
+            #remove antimicrobal with all NaN value
+            dff = dff.dropna(axis=1, how='all', inplace=False)
+
             hmap = heatmap(dff, dft, s_z="Resistance")
             script1, div1 = components(hmap)
 
@@ -110,12 +120,12 @@ def ml_analysis(request):
     if request.method == 'POST':
         input_form = InputForm2(data=request.POST)
         input_form.fields['ams2'].choices = [(x, x) for x in ANTIMICROBIALS]
-        print(input_form)
+        # print(input_form)
         if input_form.is_valid():
             if not input_form.cleaned_data['ams2']:
                 input_form.cleaned_data['ams2'] = ANTIMICROBIALS[0]
             ams = input_form.cleaned_data['ams2']
-            print(ams)
+            # print(ams)
             input_form = InputForm2()
             input_form.fields['ams2'].choices = [(x, x) for x in ANTIMICROBIALS]
             return render(request, 'pages/ml_view.html', {'form': input_form, 'pic': ams})

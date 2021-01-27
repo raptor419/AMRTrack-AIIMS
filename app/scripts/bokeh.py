@@ -65,6 +65,12 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
 
     result = pd.concat([df_tidy, sm_tidy], axis=1, join='inner')
 
+    #to add percentage sign in tooltip
+    result['Resistance2'] = result['Resistance'].astype(str)
+    result['Resistance2'] = result['Resistance2'].apply(lambda x: x+'%' if 'Data Not Available'!=x else x)
+
+    # print(result)
+
     # color declaration
     d_zcolormapper = linear_cmap(
         field_name=s_z,
@@ -76,11 +82,11 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
     lt_tooltip = [
         (s_y, f"@{s_y}"),
         (s_x, f"@{s_x}"),
-        (s_z, f"@{s_z}"),
+        (s_z, f"@{'Resistance2'}"),
         ('samples', f"@{'samples'}"),
     ]
     # generate figure
-    o_colorbar = ColorBar(color_mapper=d_zcolormapper['transform'])
+    o_colorbar = ColorBar(color_mapper=d_zcolormapper['transform'], major_label_overrides = {100:'   100%', 80:'  80%', 60:'  60%', 40:'  40%', 20:'  20%', 0:' 0%'}, title="      Resistance (%)", level='annotation')
     p = figure(
         y_range=df_matrix.index.values,
         x_range=df_matrix.columns.values,
@@ -101,6 +107,7 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
         width=1,
         height=1,
     )
+
     p.add_layout(o_colorbar, place='left')
     p.yaxis.major_label_orientation = "horizontal"
     p.xaxis.major_label_orientation = "vertical"
@@ -122,7 +129,7 @@ def barchart(dff, dft):
     barhs = df_matrix.copy()
     barhs.reset_index(inplace=True)
 
-    print(barhs)
+    # print(barhs)
 
     hsbar = plot(barhs, sm_matrix,
                  kind="barh",
@@ -134,7 +141,7 @@ def barchart(dff, dft):
                  show_figure=False,
                  figsize=(1200, 850),
                  )
-    print(hsbar)
+    # print(hsbar)
 
     return hsbar
 
@@ -180,7 +187,7 @@ def pie_path():
     df = df[['department', 'id']]
     dfs = df.sort_values(['id','department'],ascending=[0,1])
     dfs = dfs.reset_index(drop=True)
-    print(dfs)
+    # print(dfs)
     df.columns = ['Sites','Tests']
     dfs.columns = ['Sites','Tests']
     p1 = df.plot_bokeh.pie(x="Sites",
