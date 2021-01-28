@@ -66,7 +66,7 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
     result = pd.concat([df_tidy, sm_tidy], axis=1, join='inner')
 
     #to add percentage sign in tooltip
-    result['Resistance2'] = result['Resistance'].astype(str)
+    result['Resistance2'] = result[s_z].astype(str)
     result['Resistance2'] = result['Resistance2'].apply(lambda x: x+'%' if 'Data Not Available'!=x else x)
 
     # print(result)
@@ -75,8 +75,8 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
     d_zcolormapper = linear_cmap(
         field_name=s_z,
         palette=ls_color_palette,
-        low=r_low,
-        high=r_high
+        low=r_high,
+        high=r_low
     )
     # tooltip declaration
     lt_tooltip = [
@@ -85,8 +85,7 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
         (s_z, f"@{'Resistance2'}"),
         ('samples', f"@{'samples'}"),
     ]
-    # generate figure
-    o_colorbar = ColorBar(color_mapper=d_zcolormapper['transform'], major_label_overrides = {100:'   100%', 80:'  80%', 60:'  60%', 40:'  40%', 20:'  20%', 0:' 0%'}, title="      Resistance (%)", level='annotation')
+    # generate figure    
     p = figure(
         y_range=df_matrix.index.values,
         x_range=df_matrix.columns.values,
@@ -107,7 +106,7 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
         width=1,
         height=1,
     )
-
+    o_colorbar = ColorBar(color_mapper=linear_cmap(field_name=s_z,palette=ls_color_palette,low=r_low,high=r_high)['transform'], major_label_overrides = {100:'   0%', 80:'  20%', 60:'  40%', 40:'  60%', 20:'  80%', 0:' 100%'},title="      Sensivity (%)", level='annotation')
     p.add_layout(o_colorbar, place='left')
     p.yaxis.major_label_orientation = "horizontal"
     p.xaxis.major_label_orientation = "vertical"

@@ -85,7 +85,7 @@ def antibiogram(request):
 
 
             dft = dfi + dfr + dfs
-            dff = dfr / (dft) * 100
+            dff = dfs / (dft) * 100
 
             
 
@@ -100,7 +100,7 @@ def antibiogram(request):
             #remove antimicrobal with all NaN value
             dff = dff.dropna(axis=1, how='all', inplace=False)
 
-            hmap = heatmap(dff, dft, s_z="Resistance")
+            hmap = heatmap(dff, dft, s_z="Sensivity")
             script1, div1 = components(hmap)
 
             return render(request, 'pages/antibiogram.html',
