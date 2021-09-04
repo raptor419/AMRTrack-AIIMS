@@ -67,9 +67,9 @@ def antibiogram(request):
             if not input_form.cleaned_data['hosp']:
                 input_form.cleaned_data['hosp'] = HOSPTIALS
             if not input_form.cleaned_data['startdate']:
-                input_form.cleaned_data['startdate'] = datetime(1900, 1, 1).date()
+                input_form.cleaned_data['startdate'] = datetime(2010, 1, 1).date()
             if not input_form.cleaned_data['enddate']:
-                input_form.cleaned_data['enddate'] = datetime(2100, 1, 1).date()
+                input_form.cleaned_data['enddate'] = datetime(2050, 1, 1).date()
 
             # print(input_form.cleaned_data)
 
@@ -99,8 +99,10 @@ def antibiogram(request):
 
             #remove antimicrobal with all NaN value
             dff = dff.dropna(axis=1, how='all', inplace=False)
+            dft = dft.replace(0, np.nan)
+            dft = dft.dropna(axis=1, how='all', inplace=False)
 
-            hmap = heatmap(dff, dft, s_z="Sensivity")
+            hmap = heatmap(dff, dft, s_z="Sensitivity")
             script1, div1 = components(hmap)
 
             return render(request, 'pages/antibiogram.html',

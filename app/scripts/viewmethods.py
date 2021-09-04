@@ -75,34 +75,32 @@ def generate_graph(organisms, ams, hosp):
 def get_rsi(organisms, colltypes, sites, ams, hosp, startdate, enddate):
     df = getdatatable()
     df['date'] = pd.to_datetime(df['date']).dt.date
-    print(type(startdate))
     fields = ['test_id', 'department', 'sample_type', 'organism'] + ams
     df = df[df.organism.isin(organisms) & df.sample_type.isin(colltypes) & df.department.isin(sites) & df.hospital.isin(hosp) & (
             (df['date'] > startdate) & (df['date'] <= enddate))][fields]
-    tdf = df.groupby(['organism'])
+
     dfr = df.replace(-1, 0)
     dfr = dfr.replace(2, 0)
     dfr = dfr.groupby(['organism']).sum()
-    # dfr.insert(0, ' All Antimicrobials', dfr.sum(axis=1,skipna=True))
     dfr.loc[' All Organisms'] = dfr.sum(axis=0, skipna=True)
     dfr = dfr.sort_index()
+
     dfi = df.replace(-1, 0)
     dfi = dfi.replace(1, 0)
     dfi = dfi.replace(2, 1)
     dfi = dfi.groupby(['organism']).sum()
-    # dfi.insert(0, ' All Antimicrobials', dfi.sum(axis=1,skipna=True))
     dfi.loc[' All Organisms'] = dfi.sum(axis=0, skipna=True)
     dfi = dfi.sort_index()
+
     dfs = df.replace(0, 3)
     dfs = dfs.replace(-1, 0)
     dfs = dfs.replace(2, 0)
     dfs = dfs.replace(1, 0)
     dfs = dfs.replace(3, 1)
     dfs = dfs.groupby(['organism']).sum()
-    # dfs.insert(0, ' All Antimicrobials', dfs.sum(axis=1,skipna=True))
     dfs.loc[' All Organisms'] = dfs.sum(axis=0, skipna=True)
     dfs = dfs.sort_index()
-
+    
     return dfr, dfs, dfi
 
 

@@ -1,0 +1,113 @@
+,Processed_name,Close_word_match,Sequence_matcher,Edit_distance,Manual,Manual2
+0,amikacin,amikacin,amikacin,amikacin,amikacin,amikacin
+1,amox - clav, , ,amoxicillin,amoxicillin_clavulanic acid,amoxicillin_clavulanic_acid
+2,amoxicillin,amoxicillin,amoxicillin,amoxicillin,amoxicillin,amoxicillin
+3,amoxicillin - clavulanate,amoxicillin + clavulanic acid, ,amoxicillin + clavulanic acid,amoxicillin_clavulanate,amoxicillin_clavulanate
+4,amoxicillin - clavulanic acid,amoxicillin + clavulanic acid,amoxicillin + clavulanic acid,amoxicillin + clavulanic acid,amoxicillin_clavulanic acid,amoxicillin_clavulanic_acid
+5,amoxycillin,amoxicillin,amoxicillin,amoxicillin,amoxicillin,amoxicillin
+6,ampicillin,ampicillin,ampicillin,ampicillin,ampicillin,ampicillin
+7,ampicillin - sulbactum,ampicillin - sulbactam,ampicillin - sulbactam,ampicillin - sulbactam,ampicillin - sulbactam,ampicillin_sulbactam
+8,ampicillin sulbactum,ampicillin - sulbactam,ampicillin - sulbactam,ampicillin - sulbactam,ampicillin - sulbactam,ampicillin_sulbactam
+9,azithromycin,azithromycin,azithromycin,azithromycin,azithromycin,azithromycin
+10,aztreonam,aztreonam,aztreonam,aztreonam,aztreonam,aztreonam
+11,bedaquiline, , ,tetracycline,bedaquiline,bedaquiline
+12,capreomycin,azithromycin, ,vancomycin,capreomycin,capreomycin
+13,carbenicillin,penicillin, ,penicillin,carbenicillin,carbenicillin
+14,cavulinic acid,nalidixic acid, ,nalidixic acid,clavulanic acid,clavulanic_acid
+15,cefaperazone - sulbactum,cefoperazone + sulbactam, ,cefoperazone + sulbactam,cefoperazone + sulbactam,cefoperazone_sulbactam
+16,cefepime,cefepime,cefepime,cefepime,cefepime,cefepime
+17,cefexime,cefixime, ,cefepime,cefixime,cefixime
+18,cefipime,cefixime, ,cefepime,cefepime,cefepime
+19,cefixime,cefixime,cefixime,cefixime,cefixime,cefixime
+20,cefoperazone + sulbactum,cefoperazone + sulbactam,cefoperazone + sulbactam,cefoperazone + sulbactam,cefoperazone + sulbactam,cefoperazone_sulbactam
+21,cefotaxime,cefotaxime,cefotaxime,cefotaxime,cefotaxime,cefotaxime
+22,cefotaxine,cefotaxime, ,cefotaxime,cefotaxime,cefotaxime
+23,cefoxitin,cefoxitin,cefoxitin,cefoxitin,cefoxitin,cefoxitin
+24,cefpodoxime,cefpodoxime,cefpodoxime,cefpodoxime,cefpodoxime,cefpodoxime
+25,ceftazadime,ceftazidime,ceftazidime,ceftazidime,ceftazidime,ceftazidime
+26,ceftazadime - clavulanic acid,ceftazidime + clavulanic acid,ceftazidime + clavulanic acid,ceftazidime + clavulanic acid,ceftazidime + clavulanic acid,ceftazidime_clavulanic_acid
+27,ceftazidime,ceftazidime,ceftazidime,ceftazidime,ceftazidime,ceftazidime
+28,ceftazidime - clavalunic acid,ceftazidime + clavulanic acid, ,ceftazidime + clavulanic acid,ceftazidime + clavulanic acid,ceftazidime_clavulanic_acid
+29,ceftriaxone,ceftriaxone,ceftriaxone,ceftriaxone,ceftriaxone,ceftriaxone
+30,cefuroxime,cefuroxime,cefuroxime,cefuroxime,cefuroxime,cefuroxime
+31,cephazolin, , ,ampicillin,cephazolin,cephazolin
+32,chloramphenicol,chloramphenicol,chloramphenicol,chloramphenicol,chloramphenicol,chloramphenicol
+33,ciproflox,ciprofloxacin, ,ciprofloxacin,ciprofloxacin,ciprofloxacin
+34,ciprofloxacin,ciprofloxacin,ciprofloxacin,ciprofloxacin,ciprofloxacin,ciprofloxacin
+35,clindamycin,clindamycin,clindamycin,clindamycin,clindamycin,clindamycin
+36,clofazimine,ceftazidime, ,ceftazidime,clofazimine,clofazimine
+37,co - trimox,co-trimoxazole, ,co-trimoxazole,co-trimoxazole,cotrimoxazole
+38,colistin,colistin,colistin,colistin,colistin,colistin
+39,cotrimoxazole,co-trimoxazole,co-trimoxazole,co-trimoxazole,co-trimoxazole,cotrimoxazole
+40,d - cycloserine, , ,tigecycline,d - cycloserine,d_cycloserine
+41,daptomycin,azithromycin, ,vancomycin,daptomycin,daptomycin
+42,delamanid, , ,gentamicin,delamanid,delamanid
+43,doripenem,imipenem, ,faropenem,doripenem,doripenem
+44,ertapenem,meropenem, ,meropenem,ertapenem,ertapenem
+45,ertpenem,meropenem, ,meropenem,ertapenem,ertapenem
+46,erythromycin,erythromycin,erythromycin,erythromycin,erythromycin,erythromycin
+47,esbl producer, , ,erythromycin,esbl producer,esbl_producer
+48,ethambutol, , ,gentamicin,ethambutol,ethambutol
+49,ethionamide, , ,aztreonam,ethionamide,ethionamide
+50,feropenem,meropenem, ,faropenem,feropenem,feropenem
+51,fosfomycin,fosfomycin,fosfomycin,fosfomycin,fosfomycin,fosfomycin
+52,gatifloxacin,ofloxacin, ,levofloxacin,gatifloxacin,gatifloxacin
+53,gental,gentamicin, ,gentamicin,gentamicin,gentamicin
+54,gentamicin,gentamicin,gentamicin,gentamicin,gentamicin,gentamicin
+55,gentamycin,gentamicin, ,gentamicin,gentamicin,gentamicin
+56,high - dose isoniazid, , ,ciprofloxacin,high - dose isoniazid,high_dose_isoniazid
+57,imipenem,imipenem,imipenem,imipenem,imipenem,imipenem
+58,imipenem–cilastatind, , ,imipenem,,
+59,isoniazid, , ,colistin,isoniazid,isoniazid
+60,kanamycin,vancomycin, ,vancomycin,kanamycin,kanamycin
+61,levoflox,levofloxacin, ,levofloxacin,levoflox,levoflox
+62,levofloxacin,levofloxacin,levofloxacin,levofloxacin,levofloxacin,levofloxacin
+63,linezolid,linezolid,linezolid,linezolid,linezolid,linezolid
+64,meropenem,meropenem,meropenem,meropenem,meropenem,meropenem
+65,moxifloxacin,ofloxacin, ,norfloxacin,moxifloxacin,moxifloxacin
+66,nalidixic acid,nalidixic acid,nalidixic acid,nalidixic acid,nalidixic acid,nalidixic_acid
+67,netilmicin,netilmicin,netilmicin,netilmicin,netilmicin,netilmicin
+68,nitrofurantion,nitrofurantoin,nitrofurantoin,nitrofurantoin,nitrofurantoin,nitrofurantoin
+69,nitrofurantoin,nitrofurantoin,nitrofurantoin,nitrofurantoin,nitrofurantoin,nitrofurantoin
+70,no antibiotic, , ,ampicillin,,
+71,norfloxacin,norfloxacin,norfloxacin,norfloxacin,norfloxacin,norfloxacin
+72,oflox,ofloxacin, ,ofloxacin,ofloxacin,ofloxacin
+73,ofloxacin,ofloxacin,ofloxacin,ofloxacin,ofloxacin,ofloxacin
+74,p - aminosalicylic acid, , ,nalidixic acid,p - aminosalicylic acid,p_aminosalicylic_acid
+75,pas, , ,amikacin,p - aminosalicylic acid,p_aminosalicylic_acid
+76,pencicillin,penicillin,penicillin,penicillin,penicillin,penicillin
+77,penicillin,penicillin,penicillin,penicillin,penicillin,penicillin
+78,piperacillin,piperacillin,piperacillin,piperacillin,piperacillin,piperacillin
+79,piperacillin + tezobactuam,piperacillin - tazobactam,piperacillin - tazobactam,piperacillin - tazobactam,piperacillin - tazobactam,piperacillin_tazobactam
+80,piperacillin + tezobactum,piperacillin - tazobactam, ,piperacillin - tazobactam,piperacillin - tazobactam,piperacillin_tazobactam
+81,piperacillin - tazobactum,piperacillin - tazobactam,piperacillin - tazobactam,piperacillin - tazobactam,piperacillin - tazobactam,piperacillin_tazobactam
+82,polymyxin b,polymyxin b,polymyxin b,polymyxin b,polymyxin b,polymyxin_b
+83,pristinomycin,erythromycin, ,azithromycin,pristinomycin,pristinomycin
+84,pyrazinamide, , ,amikacin,pyrazinamide,pyrazinamide
+85,rifampacin,amikacin, ,amikacin,rifampin,rifampin
+86,rifampicin,ampicillin, ,gentamicin,rifampin,rifampin
+87,sparfloxacin,ciprofloxacin, ,norfloxacin,sparfloxacin,sparfloxacin
+88,spectinomycin,clindamycin, ,azithromycin,spectinomycin,spectinomycin
+89,streptomycin,erythromycin, ,azithromycin,streptomycin,streptomycin
+90,teicoplanin,teicoplanin,teicoplanin,teicoplanin,teicoplanin,teicoplanin
+91,tetracycline,tetracycline,tetracycline,tetracycline,tetracycline,tetracycline
+92,tetracyclline,tetracycline,tetracycline,tetracycline,tetracycline,tetracycline
+93,thioacetazone, , ,tetracycline,thioacetazone,thioacetazone
+94,ticarcillin,piperacillin, ,piperacillin,ticarcillin,ticarcillin
+95,ticarcillin + cavulinic acid,ticarcillin + clavulanic acid,ticarcillin + clavulanic acid,ticarcillin + clavulanic acid,ticarcillin + clavulanic acid,ticarcillin_clavulanate
+96,ticarcillin - clavulanic acid,ticarcillin + clavulanic acid,ticarcillin + clavulanic acid,ticarcillin + clavulanic acid,ticarcillin + clavulanic acid,ticarcillin_clavulanic_acid
+97,tigecycline,tigecycline,tigecycline,tigecycline,tigecycline,tigecycline
+98,tigicycline,tigecycline,tigecycline,tigecycline,tigecycline,tigecycline
+99,tigicyline,tigecycline, ,tigecycline,tigecycline,tigecycline
+100,ulifloxacin,ofloxacin, ,norfloxacin,ulifloxacin,ulifloxacin
+101,vancomycin,vancomycin,vancomycin,vancomycin,vancomycin,vancomycin
+102,evofloxacin,,,,levofloxacin,levofloxacin
+103,cefazolin,,,,cephazolin,cephazolin
+104,cefoperazone - sulbactam,,,,cefoperazone + sulbactam,cefoperazone_sulbactam
+105,ceftazidime - avibactam,,,,ceftazidime,ceftazidime
+106,high level gentamicin,,,,gentamicin,gentamicin
+107,minocycline,,,,tetracycline,tetracycline
+108,piperacillin - tazobactam,,,,piperacillin - tazobactam,piperacillin_tazobactam
+109,doxycycline,,,,tetracycline,tetracycline
+110,levonadifloxacin,,,,levofloxacin,levofloxacin
+111,oxacillin,,,,penicillin,penicillin

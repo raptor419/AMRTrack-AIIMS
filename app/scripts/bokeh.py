@@ -11,7 +11,7 @@ import pandas as pd
 import pandas_bokeh
 
 
-def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_high=105, s_z="Sensivity"):
+def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_high=105, s_z="Sensitivity"):
     """
     input:
         df_matrx: a dataframe in same xy orientation as the final heatmap.
@@ -43,6 +43,7 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
     """
 
     df_matrix = data_matrix.replace(np.nan, 'Data Not Available')
+    sample_matrix = sample_matrix.replace(np.nan, '0')
     sm_matrix = sample_matrix
 
     if (df_matrix.index.name == None):
@@ -106,7 +107,7 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
         width=1,
         height=1,
     )
-    o_colorbar = ColorBar(color_mapper=linear_cmap(field_name=s_z,palette=ls_color_palette,low=r_low,high=r_high)['transform'], major_label_overrides = {100:'   0%', 80:'  20%', 60:'  40%', 40:'  60%', 20:'  80%', 0:' 100%'},title="      Sensivity (%)", level='annotation')
+    o_colorbar = ColorBar(color_mapper=linear_cmap(field_name=s_z,palette=ls_color_palette,low=r_low,high=r_high)['transform'], major_label_overrides = {100:'   0%', 80:'  20%', 60:'  40%', 40:'  60%', 20:'  80%', 0:' 100%'},title="      Sensitivity (%)", level='annotation')
     p.add_layout(o_colorbar, place='left')
     p.yaxis.major_label_orientation = "horizontal"
     p.xaxis.major_label_orientation = "vertical"
