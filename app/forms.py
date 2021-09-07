@@ -27,8 +27,6 @@ class InputDataForm(forms.Form):
                                     label="Select Organisms", required=False)
     col = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=[(x, x) for x in COLLTYPES],
                                     label="Select Collection Type", required=False)
-    hosp = forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple, choices=[(x, x) for x in HOSPTIALS],
-                                     label="Select Hospitals", required=False)
     startdate = forms.DateField(label='Enter End Date', widget=DatePickerInput, required=False)
     enddate = forms.DateField(label='Enter Start Date', widget=DatePickerInput, required=False)
 

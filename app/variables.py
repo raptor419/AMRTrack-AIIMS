@@ -8,7 +8,6 @@ SITES = SITES
 ORGANISMS = ORGANISMS
 COLLTYPES = COLLTYPES
 
-HOSPTIALS = ['AIIMS New Delhi', 'AIIMS Jhajahr']
+HOSPTIALS = ['AIIMS New Delhi', 'AIIMS Jhajjahr']
 
 POST = ['Doctor', 'Clinician', 'Policy Maker', 'Pathologist']
-

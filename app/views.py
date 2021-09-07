@@ -64,24 +64,20 @@ def antibiogram(request):
                 input_form.cleaned_data['col'] = COLLTYPES
             if not input_form.cleaned_data['org']:
                 input_form.cleaned_data['org'] = ORGANISMS
-            if not input_form.cleaned_data['hosp']:
-                input_form.cleaned_data['hosp'] = HOSPTIALS
             if not input_form.cleaned_data['startdate']:
                 input_form.cleaned_data['startdate'] = datetime(2010, 1, 1).date()
             if not input_form.cleaned_data['enddate']:
                 input_form.cleaned_data['enddate'] = datetime(2050, 1, 1).date()
 
-            # print(input_form.cleaned_data)
+            hosp = ["AIIMS New Delhi"]
 
             dfr, dfs, dfi = get_rsi(ams=input_form.cleaned_data['ams'],
                                     organisms=input_form.cleaned_data['org'],
                                     colltypes=input_form.cleaned_data['col'],
                                     sites=input_form.cleaned_data['site'],
-                                    hosp=input_form.cleaned_data['hosp'],
+                                    hosp=hosp,
                                     startdate=input_form.cleaned_data['startdate'],
                                     enddate=input_form.cleaned_data['enddate'])
-
-            hosp = input_form.cleaned_data['hosp']
 
 
             dft = dfi + dfr + dfs
