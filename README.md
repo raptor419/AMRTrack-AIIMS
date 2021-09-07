@@ -47,7 +47,7 @@ $ # Access the web app in browser: http://127.0.0.1:8000/
 
 ## Support
 
-- Available support via eMail harsh17234@iiitd.ac.in 
+- Available support via eMail harsh17234@iiitd.ac.in, samarth18410@iiitd.ac.in 
 
 <br />
 
