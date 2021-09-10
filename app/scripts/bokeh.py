@@ -1,3 +1,6 @@
+from math import pi
+
+from numpy.core.fromnumeric import shape
 from app.scripts.plot import *
 from app.models import PathTest
 
@@ -8,6 +11,7 @@ from bokeh.transform import dodge, linear_cmap
 from bokeh.palettes import *
 from django_pandas.io import read_frame
 import pandas as pd
+import random
 import pandas_bokeh
 
 
@@ -90,7 +94,7 @@ def heatmap(data_matrix, sample_matrix, ls_color_palette=RdYlGn11, r_low=-5, r_h
     p = figure(
         y_range=df_matrix.index.values,
         x_range=df_matrix.columns.values,
-        tools="hover,pan,reset,wheel_zoom",  # have to be set hardcoded
+        tools="hover,pan,reset,wheel_zoom,save",  # have to be set hardcoded
         # active_drag = "wheel_zoom",  # have to be set hardcoded
         active_scroll = "wheel_zoom",
         tooltips=lt_tooltip,
@@ -187,13 +191,27 @@ def pie_path():
     df = df[['department', 'id']]
     dfs = df.sort_values(['id','department'],ascending=[0,1])
     dfs = dfs.reset_index(drop=True)
-    # print(dfs)
     df.columns = ['Sites','Tests']
     dfs.columns = ['Sites','Tests']
-    p1 = df.plot_bokeh.pie(x="Sites",
-                      y="Tests",
-                      title="No of Microbiology Tests",
-                      show_figure=False,
-                      legend=False,
-                      zooming=True,)
-    return p1,dfs
+    # p1 = df.plot_bokeh.pie(x="Sites",
+    #                   y="Tests",
+    #                   title="No of Microbiology Tests",
+    #                   show_figure=True,
+    #                   legend=True,
+    #                   zooming=True,)
+    
+    df['angle'] = df['Tests']/df['Tests'].sum() * 2*pi
+    colors = [Turbo256[i] for i in range(0, 2*df.shape[0], 2)]
+    random.shuffle(colors)
+    df['color'] = colors
+    p = figure(title="No of Microbiology Tests", tools="hover,pan,reset,wheel_zoom,save", active_scroll = "wheel_zoom", tooltips="@Sites: @Tests")
+
+    p.wedge(x=0, y=1, radius=0.8, 
+            start_angle=cumsum('angle', include_zero=True), 
+            end_angle=cumsum('angle'), line_color="white", 
+            fill_color='color', 
+            source=df)
+    p.axis.axis_label=None
+    p.axis.visible=False
+    p.grid.grid_line_color = None
+    return p,dfs
